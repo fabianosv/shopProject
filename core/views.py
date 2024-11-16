@@ -33,6 +33,20 @@ def produto_form(request, id=None):
         form = ProdutoForm(instance=produto)
     return render(request, 'produto_form.html', {'form': form})
 
+def venda_list(request):
+    produtos = Produto.objects.all()
+    return render(request, 'vendas.html', {"vendas": vendas})
+
+def venda_form(request, id=None):
+    produto = Produto.objects.get(id=id) if id else None
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('venda_list')
+    else:
+        form = ProdutoForm(instance=produto)
+    return render(request, 'venda_form.html', {'form': form})
 # Funções `produto_list`, `produto_form`, `venda_list`, `venda_form`
 from django.shortcuts import render
 

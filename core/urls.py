@@ -10,5 +10,9 @@ urlpatterns = [
     path ('productos/novo/', views.produto_form, name='produto_create'),
     path('produtos/<int:id>/', views.produto_form, name='produto_update'),
 
+    path ('vendas/', views.produto_list, name='venda_list'),
+    path ('vendas/novo/', views.produto_form, name='venda_create'),
+    path('vendas/<int:id>/', views.produto_form, name='venda_update'),
+
 
 ]
