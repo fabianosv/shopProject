@@ -43,11 +43,10 @@ def produto_form(request, id=None):
         form = ProdutoForm(instance=produto)
     return render(request, 'produto_form.html', {'form': form})
 
-# --- Venda ---
+
 def venda_list(request):
     filtro = VendaFilter(request.GET, queryset=Venda.objects.select_related('cliente', 'produto'))
     return render(request, 'vendas.html', {'filter': filtro})
-
 
 def venda_form(request, id=None):
     venda = get_object_or_404(Venda, id=id) if id else None
