@@ -25,13 +25,16 @@ def cliente_form(request, id=None):
 
 # --- Produto ---
 def produto_list(request):
+    # Usando filtro para listar os produtos
     filtro = ProdutoFilter(request.GET, queryset=Produto.objects.all())
     return render(request, 'produtos.html', {'filter': filtro})
 
 
 def produto_form(request, id=None):
+    # Recuperando ou criando um novo produto
     produto = get_object_or_404(Produto, id=id) if id else None
     if request.method == 'POST':
+        # Processando o formulário
         form = ProdutoForm(request.POST, instance=produto)
         if form.is_valid():
             form.save()
@@ -39,7 +42,6 @@ def produto_form(request, id=None):
     else:
         form = ProdutoForm(instance=produto)
     return render(request, 'produto_form.html', {'form': form})
-
 
 # --- Venda ---
 def venda_list(request):
