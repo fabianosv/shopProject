@@ -37,7 +37,12 @@ python manage.py runserver
 
 Acesse o projeto no navegador em http://127.0.0.1:8000/
 
+Nome da Equipe: JaraQuiz
 
+Tech Lead: Fabiano Vasconcelos;
+Dev's: Francisco Felipe
+       Riquelme Nascimento
+       Adriel Vinícius
 
 
 
